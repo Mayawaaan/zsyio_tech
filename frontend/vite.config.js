@@ -10,24 +10,6 @@ export default defineConfig({
     ],
     build: {
         chunkSizeWarningLimit: 1000,
-        rollupOptions: {
-            output: {
-                manualChunks(id) {
-                    if (id.includes('node_modules')) {
-                        if (id.includes('lucide-react')) {
-                            return 'vendor-icons';
-                        }
-                        if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-                            return 'vendor-react';
-                        }
-                        if (id.includes('framer-motion') || id.includes('gsap')) {
-                            return 'vendor-animation';
-                        }
-                        return 'vendor';
-                    }
-                }
-            }
-        }
     },
     server: {
         port: 5173,
